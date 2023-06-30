@@ -23,8 +23,11 @@ public class ResultReactiveRepositoryAdapter implements ResultRepository {
 
     @Override
     public Mono<Result> save(Result result) {
-        return resultReactiveDao.save(modelMapper.map(result, ResultReactiveEntity.class))
-                .map(resultReactiveEntity -> modelMapper.map(resultReactiveEntity, Result.class));
+        ResultReactiveEntity resultReactiveEntity = modelMapper.map(result, ResultReactiveEntity.class);
+        return resultReactiveDao.findById(result.getId())
+                .flatMap(x -> resultReactiveDao.save(resultReactiveEntity))
+                .switchIfEmpty(resultReactiveDao.save(resultReactiveEntity.setAsNew()))
+                .map(saved -> modelMapper.map(saved, Result.class));
     }
 
     @Override
