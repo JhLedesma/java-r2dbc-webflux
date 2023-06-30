@@ -14,8 +14,4 @@ public class ResultReactiveDocument {
     @Id
     private String id;
     private Integer result;
-
-    public ResultReactiveDocument(Integer result) {
-        this.result = result;
-    }
 }

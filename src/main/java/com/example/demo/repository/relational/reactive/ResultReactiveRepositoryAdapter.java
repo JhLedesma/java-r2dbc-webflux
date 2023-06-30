@@ -28,7 +28,7 @@ public class ResultReactiveRepositoryAdapter implements ResultRepository {
     }
 
     @Override
-    public Mono<Result> findById(Long id) {
+    public Mono<Result> findById(String id) {
         return resultReactiveDao.findById(id)
                 .map(resultReactiveEntity -> modelMapper.map(resultReactiveEntity, Result.class));
     }

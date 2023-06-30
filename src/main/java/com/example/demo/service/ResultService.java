@@ -23,7 +23,7 @@ public class ResultService {
         return resultRepository.save(result);
     }
 
-    public Mono<Result> findById(Long id) {
+    public Mono<Result> findById(String id) {
         return resultRepository.findById(id).switchIfEmpty(Mono.error(new ResourceNotFoundException("Result not found with id " + id)));
     }
 

@@ -23,7 +23,7 @@ public class ResultController {
     }
 
     @GetMapping("/{id}")
-    public Mono<Result> get(@PathVariable Long id) {
+    public Mono<Result> get(@PathVariable String id) {
         return resultService.findById(id);
     }
 

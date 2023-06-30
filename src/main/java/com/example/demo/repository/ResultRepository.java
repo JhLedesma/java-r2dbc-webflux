@@ -7,6 +7,6 @@ import reactor.core.publisher.Mono;
 public interface ResultRepository {
 
     Mono<Result> save(Result result);
-    Mono<Result> findById(Long id);
+    Mono<Result> findById(String id);
     Flux<Result> findAll();
 }
