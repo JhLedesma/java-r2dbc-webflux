@@ -9,7 +9,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-@Document(collation = "result")
+@Document(collection = "result")
 public class ResultReactiveDocument {
     @Id
     private String id;
